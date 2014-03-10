@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
 @Table(name = "users")
 public class User implements Serializable {

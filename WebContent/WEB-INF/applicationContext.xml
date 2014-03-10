@@ -12,4 +12,5 @@
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
 	</bean>
+	
 </beans>
