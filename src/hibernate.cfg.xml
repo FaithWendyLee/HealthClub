@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC        "-
+//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.datasource">java:comp/env/jdbc/HealthClub</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		<mapping class="model.User"/>
+		<mapping class="model.Employee"/>
+		<mapping class="model.Card"/>
+<!-- 		<mapping class="model.Attendance"/> -->
+		<mapping class="model.Activity"/>
+	</session-factory>
+</hibernate-configuration>
