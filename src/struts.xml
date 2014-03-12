@@ -4,6 +4,7 @@
       "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="struts2"  extends="struts-default">
-		
+	<action name="Register" class="RegisterAction">
+	</action>
 	</package>
 </struts>

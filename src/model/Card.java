@@ -24,9 +24,11 @@ public class Card implements Serializable {
 	private int type;
 	private int status;
 	private int bankaccount;
+	private int Remaining;
 	private Date lastDate;
 	private Set<User> users = new HashSet<User>();
 	private Set<Activity> activities = new HashSet<Activity>();
+	private Set<Payment> payments = new HashSet<Payment>();
 	
 	@Id
 	public int getId() {
@@ -104,6 +106,36 @@ public class Card implements Serializable {
 	}
 	public void setActivities(Set<Activity> activities) {
 		this.activities = activities;
+	}
+	
+	@OneToMany(mappedBy="card", 
+			cascade=CascadeType.ALL, 
+			fetch=FetchType.LAZY )
+	@OrderBy(value="id ASC")
+	public Set<Payment> getPayments() {
+		return payments;
+	}
+	public void setPayments(Set<Payment> payments) {
+		this.payments = payments;
+	}
+	
+	public void addPayment(Payment p){
+		if (! this.payments.contains(p)){
+			this.payments.add(p);
+			p.setCard(this);
+		}
+	}
+	
+	@Column(nullable=false, length=10)
+	public void removePayment(Payment p){
+		p.setCard(null);
+		this.payments.remove(p);
+	}
+	public int getRemaining() {
+		return Remaining;
+	}
+	public void setRemaining(int remaining) {
+		Remaining = remaining;
 	}
 	
 	

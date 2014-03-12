@@ -11,7 +11,8 @@
 		<mapping class="model.User"/>
 		<mapping class="model.Employee"/>
 		<mapping class="model.Card"/>
-<!-- 		<mapping class="model.Attendance"/> -->
+		<mapping class="model.Attendance"/>
+		<mapping class="model.Payment"/> 
 		<mapping class="model.Activity"/>
 	</session-factory>
 </hibernate-configuration>

@@ -17,6 +17,7 @@ import org.hibernate.annotations.DynamicUpdate;
 public class User implements Serializable {
 
 	private int id;
+	private String name;
 	private Card card;
 	private int age;
 	private int sex;
@@ -28,6 +29,14 @@ public class User implements Serializable {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	@Column(nullable=false, length=50)
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	@ManyToOne(cascade=CascadeType.ALL, optional=false)

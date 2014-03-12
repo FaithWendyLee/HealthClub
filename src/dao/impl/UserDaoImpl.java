@@ -2,6 +2,7 @@ package dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import model.User;
@@ -11,8 +12,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
 	@Override
 	public User find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return (User) super.find(id, "User");
 	}
 
 }
