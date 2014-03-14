@@ -98,7 +98,9 @@ public class Card implements Serializable {
 		this.users.remove(u);
 	}
 	
-	@ManyToMany(mappedBy="cards")
+	@ManyToMany(mappedBy="cards",
+			cascade=CascadeType.ALL, 
+			fetch=FetchType.EAGER )
 	public Set<Activity> getActivities() {
 		return activities;
 	}

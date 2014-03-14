@@ -11,6 +11,11 @@
 		<result name="error">/user/error.jsp</result>
 		<result name="home">/user/home.jsp</result>
 	</action>
+	<action name="EmployeeLogin" class="EmployeeLoginAction">
+		<result name="make_activity">/staff/make_activity.jsp</result>
+		<result name="staff_error">/staff/error.jsp</result>
+		<result name="manager_error">/manager/error.jsp</result>
+	</action>
 	<action name="ChangeInfo" class="ChangeInfoAction">
 		<result name="home">/user/home.jsp</result>
 	</action>

@@ -64,7 +64,7 @@ public class Activity implements Serializable {
 		this.coach = coach;
 	}
 	
-	@ManyToMany(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@ManyToMany(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinTable(name="attendances",
 	joinColumns = 
 	@JoinColumn(name="activity_id", referencedColumnName="id"),

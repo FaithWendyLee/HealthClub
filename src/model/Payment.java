@@ -32,7 +32,7 @@ public class Payment implements Serializable {
 		this.id = id;
 	}
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional=false)
+	@ManyToOne(cascade = CascadeType.ALL, optional=false)
 	@JoinColumn(name="card_id")
 	public Card getCard() {
 		return card;

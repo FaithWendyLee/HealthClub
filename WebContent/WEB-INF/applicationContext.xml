@@ -34,6 +34,25 @@
 			<ref bean="CardDao"/>
 		</property>
 	</bean>
+	<bean id="StaffService" class="service.impl.StaffServiceImpl">
+		<property name="UserDao">
+			<ref bean="UserDao"/>
+		</property>
+		<property name="CardDao">
+			<ref bean="CardDao"/>
+		</property>
+		<property name="EmployeeDao">
+			<ref bean="EmployeeDao"/>
+		</property>
+		<property name="ActivityDao">
+			<ref bean="ActivityDao"/>
+		</property>
+	</bean>
+	<bean id="ManagerService" class="service.impl.ManagerServiceImpl">
+		<property name="EmployeeDao">
+			<ref bean="EmployeeDao"/>
+		</property>
+	</bean>
 	<bean id="RegisterAction" class="action.RegisterAction">
 		<property name="RegisterService">
 			<ref bean="RegisterService"/>
@@ -47,6 +66,14 @@
 	<bean id="ChangeInfoAction" class="action.ChangeInfoAction">
 		<property name="CardService">
 			<ref bean="CardService"/>
+		</property>
+	</bean>
+	<bean id="EmployeeLoginAction" class="action.EmployeeLoginAction">
+		<property name="StaffService">
+			<ref bean="StaffService"/>
+		</property>
+		<property name="ManagerService">
+			<ref bean="ManagerService"/>
 		</property>
 	</bean>
 </beans>

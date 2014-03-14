@@ -51,7 +51,7 @@
 		 });
 	});
 </script>
-<title>修改人人资料</title>
+<title>修改个人资料</title>
 </head>
 <body>
 
