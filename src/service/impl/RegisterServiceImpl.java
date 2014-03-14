@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import model.Card;
 import model.User;
 import dao.CardDao;
@@ -15,12 +17,12 @@ public class RegisterServiceImpl implements RegisterService {
 		userDao.save(user);
 	}
 	
-	public void saveUsers(User[] users){
+	public void saveUsers(List<User> users){
 		userDao.saveMany(users);
 	}
 	
-	public void saveCard(Card card){
-		cardDao.save(card);
+	public Card saveCard(Card card){
+		return cardDao.find(cardDao.save(card));
 	}
 
 	public UserDao getUserDao() {
@@ -37,6 +39,11 @@ public class RegisterServiceImpl implements RegisterService {
 
 	public void setCardDao(CardDao cardDao) {
 		this.cardDao = cardDao;
+	}
+
+	@Override
+	public Card getCard(int id) {
+		return cardDao.find(id);
 	}
 	
 }

@@ -55,5 +55,6 @@ public class HibernateUtil {
 		Configuration cfg = new Configuration().configure();  
 		SchemaExport export = new SchemaExport(cfg);  
 		export.create(true, true); 
+		System.out.println("haha");
 	}
 }

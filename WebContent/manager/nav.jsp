@@ -7,7 +7,7 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<title>预定健身活动</title>
+<title>Insert title here</title>
 </head>
 <body>
 	

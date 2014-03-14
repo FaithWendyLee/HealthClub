@@ -2,35 +2,29 @@ package dao.impl;
 
 import java.util.List;
 
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
-import javax.transaction.Transaction;
-
 import model.User;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import dao.BaseDao;
 
 public class BaseDaoImpl implements BaseDao {
 
 	@Override
-	public void save(Object o) {
+	public int save(Object o) {
 		Session session = HibernateUtil.currentSession();
 		Transaction transaction = (Transaction) session.beginTransaction();
-		session.save(o);
+		int result = (Integer) session.save(o);
 		try {
 			transaction.commit();
-		} catch (SecurityException | IllegalStateException | RollbackException
-				| HeuristicMixedException | HeuristicRollbackException
-				| SystemException e) {
+		} catch (SecurityException | IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		HibernateUtil.closeSession();
+		return result;
 	}
 
 	@Override
@@ -40,9 +34,7 @@ public class BaseDaoImpl implements BaseDao {
 		session.update(o);
 		try {
 			transaction.commit();
-		} catch (SecurityException | IllegalStateException | RollbackException
-				| HeuristicMixedException | HeuristicRollbackException
-				| SystemException e) {
+		} catch (SecurityException | IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -50,7 +42,7 @@ public class BaseDaoImpl implements BaseDao {
 	}
 
 	@Override
-	public void saveMany(Object[] arr) {
+	public void saveMany(List arr) {
 		Session session = HibernateUtil.currentSession();
 		Transaction transaction = (Transaction) session.beginTransaction();
 		for (Object o : arr) {
@@ -58,16 +50,14 @@ public class BaseDaoImpl implements BaseDao {
 		}
 		try {
 			transaction.commit();
-		} catch (SecurityException | IllegalStateException | RollbackException
-				| HeuristicMixedException | HeuristicRollbackException
-				| SystemException e) {
+		} catch (SecurityException | IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		HibernateUtil.closeSession();
 	}
 	
-	public void updateMany(Object[] arr) {
+	public void updateMany(List arr) {
 		Session session = HibernateUtil.currentSession();
 		Transaction transaction = (Transaction) session.beginTransaction();
 		for (Object o : arr) {
@@ -75,9 +65,7 @@ public class BaseDaoImpl implements BaseDao {
 		}
 		try {
 			transaction.commit();
-		} catch (SecurityException | IllegalStateException | RollbackException
-				| HeuristicMixedException | HeuristicRollbackException
-				| SystemException e) {
+		} catch (SecurityException | IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -90,9 +78,9 @@ public class BaseDaoImpl implements BaseDao {
 		String hql = "from " + entityname + " where id = ?";
 		Query query = (Query) session.createQuery(hql);
 		query.setParameter(0, id);
-		User user = (User) query.uniqueResult();
+		Object o = query.uniqueResult();
 		HibernateUtil.closeSession();
-		return user;
+		return o;
 	}
 	
 }

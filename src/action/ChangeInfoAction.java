@@ -3,52 +3,47 @@ package action;
 import java.util.ArrayList;
 import java.util.List;
 
-import service.RegisterService;
+import service.CardService;
 import model.Card;
 import model.User;
 import model.type.CardType;
 import model.type.SexType;
 import model.type.StatusType;
 
-public class RegisterAction extends BaseAction {
+public class ChangeInfoAction extends BaseAction {
+	private CardService cardService;
+	
 	private String[] name, sex, address; 
 	private int[] age;
 	private Card card;
-	private List<User> users;
-	
-	private RegisterService registerService;
-	
+	private boolean activate;
+
+	@Override
 	public String execute() throws Exception {
-		card.setStatus(StatusType.CANCEl);
-		card.setRemaining(100);
-		CardType type = (request.getParameter("type").equals("normal") ? CardType.NORMAL : CardType.FAMILY) ;
-		card.setType(type);
-		Card p_card = registerService.saveCard(card);
-		users = new ArrayList<User>();
+		Card p_card = (Card) session.get("p_card");
+		if (activate == true)
+			card.setStatus(StatusType.VALID);
+		cardService.updateCard(p_card, card);
+		List<User> users = new ArrayList<User>();
 		for (int i = 0; i < name.length; i++) {
 			SexType sexType = sex[i].equals("男") ? SexType.MALE : SexType.FEMALE;
 			User user = new User(name[i], p_card, age[i], sexType, address[i]);
 			users.add(user);
 		}
-		registerService.saveUsers(users);
-		return "finish";
+		@SuppressWarnings("unchecked")
+		List<User> oldUsers = (List<User>)session.get("p_users");
+		cardService.updateUsers(oldUsers, users);
+		return "home";
 	}
 
-	public Card getCard() {
-		return card;
-	}
-	public void setCard(Card card) {
-		this.card = card;
+	public CardService getCardService() {
+		return cardService;
 	}
 
-	public RegisterService getRegisterService() {
-		return registerService;
+	public void setCardService(CardService cardService) {
+		this.cardService = cardService;
 	}
-
-	public void setRegisterService(RegisterService registerService) {
-		this.registerService = registerService;
-	}
-
+	
 	public String[] getName() {
 		return name;
 	}
@@ -81,7 +76,20 @@ public class RegisterAction extends BaseAction {
 		this.age = age;
 	}
 	
-	
+	public Card getCard() {
+		return card;
+	}
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	public boolean isActivate() {
+		return activate;
+	}
+
+	public void setActivate(boolean activate) {
+		this.activate = activate;
+	}
 	
 	
 }

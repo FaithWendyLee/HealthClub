@@ -5,6 +5,14 @@
 <struts>
 	<package name="struts2"  extends="struts-default">
 	<action name="Register" class="RegisterAction">
+		<result name="finish">/user/register_finish.jsp</result>
+	</action>
+	<action name="Login" class="LoginAction">
+		<result name="error">/user/error.jsp</result>
+		<result name="home">/user/home.jsp</result>
+	</action>
+	<action name="ChangeInfo" class="ChangeInfoAction">
+		<result name="home">/user/home.jsp</result>
 	</action>
 	</package>
 </struts>

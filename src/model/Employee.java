@@ -6,9 +6,13 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import model.type.EmployeeType;
 
 @Entity
 @Table(name = "employees")
@@ -16,10 +20,11 @@ public class Employee implements Serializable {
 
 	private int id;
 	private String password;
-	private int type;
+	private EmployeeType type;
 	private Activity activity;
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -36,10 +41,10 @@ public class Employee implements Serializable {
 	}
 	
 	@Column(nullable=false, length=2)
-	public int getType() {
+	public EmployeeType getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(EmployeeType type) {
 		this.type = type;
 	}
 	

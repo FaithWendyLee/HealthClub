@@ -1,15 +1,59 @@
+<%@page import="model.type.StatusType"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="model.type.SexType"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="model.type.CardType"%>
+<%@page import="model.User"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:include page="register.jsp"/>
+<jsp:useBean id="p_card" class="model.Card" scope="session"/>
+<% List<User> users = (List<User>) session.getAttribute("p_users");%>
+<jsp:setProperty name="p_card" property="*"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-<title>Insert title here</title>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+	$(function () {
+		changeNavTo("change_info");
+		$("input[name='card.bankaccount']").attr("value", <%=p_card.getBankaccount() %>);
+		$("input[name='card.password']").attr("value", "<%=p_card.getPassword() %>");
+		$("#type").remove();
+		$("addUserBtn").remove();
+		<% for( int i = 1; i < users.size(); i++ ) {%>
+			addUser();
+		<%}%>
+		var i = 0;
+		<% for( int i = 0; i < users.size(); i++ ) {
+			 User user = users.get(i); %>
+			 console.log(i);
+			$("input[name='name']").eq(i).attr("value", "<%=user.getName()%>");
+			var sexvalue = "female";
+			<% if (user.getSex()==SexType.MALE) %>
+				sexvalue = "male";
+			$("input[name='sex']").eq(i).val(sexvalue);
+			$("input[name='address']").eq(i).attr("value", "<%=user.getAddress()%>");
+			$("input[name='age']").eq(i).attr("value", "<%=user.getAge()%>");
+			i++;
+		<%}%>
+		<% if (p_card.getStatus() == StatusType.CANCEl) {%>
+			$("<div class='control-group'><div class='controls'><label class='checkbox'><input type='checkbox' name='activate' value=false>激活会员卡</label></div></div>").insertBefore("div#main	");
+		<% } %>
+		$("form").attr("action", "ChangeInfo.action");
+		$('input[type="checkbox"][name="activate"]').change(function() {
+		      this.value = this.checked;
+		 });
+	});
+</script>
+<title>修改人人资料</title>
 </head>
 <body>
 
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

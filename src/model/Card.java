@@ -9,11 +9,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import model.type.CardType;
+import model.type.StatusType;
 
 @Entity
 @Table(name = "cards")
@@ -21,18 +26,19 @@ public class Card implements Serializable {
 
 	private int id;
 	private String password;
-	private int type;
-	private int status;
+	private CardType type;
+	private StatusType status;
 	private int bankaccount;
 	private int Remaining;
-	private Date lastDate;
 	private Set<User> users = new HashSet<User>();
 	private Set<Activity> activities = new HashSet<Activity>();
 	private Set<Payment> payments = new HashSet<Payment>();
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(nullable=false, length=7)
 	public int getId() {
-		return id;
+		return id;	
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -46,19 +52,18 @@ public class Card implements Serializable {
 		this.password = password;
 	}
 	
-	@Column(nullable=false, length=2)
-	public int getType() {
+	@Column(nullable=false)
+	public CardType getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(CardType type) {
 		this.type = type;
 	}
-	
-	@Column(nullable=false, length=2)
-	public int getStatus() {
+	@Column(nullable=false)
+	public StatusType getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(StatusType status) {
 		this.status = status;
 	}
 	
@@ -70,16 +75,9 @@ public class Card implements Serializable {
 		this.bankaccount = bankaccount;
 	}
 	
-	public Date getLastDate() {
-		return lastDate;
-	}
-	public void setLastDate(Date lastDate) {
-		this.lastDate = lastDate;
-	}
-	
 	@OneToMany(mappedBy="card", 
 			cascade=CascadeType.ALL, 
-			fetch=FetchType.LAZY )
+			fetch=FetchType.EAGER )
 	@OrderBy(value="id ASC")
 	public Set<User> getUsers() {
 		return users;
@@ -110,7 +108,7 @@ public class Card implements Serializable {
 	
 	@OneToMany(mappedBy="card", 
 			cascade=CascadeType.ALL, 
-			fetch=FetchType.LAZY )
+			fetch=FetchType.EAGER )
 	@OrderBy(value="id ASC")
 	public Set<Payment> getPayments() {
 		return payments;
@@ -138,5 +136,10 @@ public class Card implements Serializable {
 		Remaining = remaining;
 	}
 	
-	
+	public void activate(){
+		if (this.type == CardType.NORMAL)
+			this.setRemaining(this.getRemaining() - 75);
+		else
+			this.setRemaining(this.getRemaining() - 100);
+	}
 }

@@ -7,11 +7,11 @@
 	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
-<!-- 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="configLocation">
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
-	</bean> -->
+	</bean>
 	<bean id="UserDao" class="dao.impl.UserDaoImpl"/>
 	<bean id="CardDao" class="dao.impl.CardDaoImpl"/>
 	<bean id="PaymentDao" class="dao.impl.PaymentDaoImpl"/>
@@ -26,9 +26,27 @@
 			<ref bean="CardDao"/>
 		</property>
 	</bean>
+	<bean id="CardService" class="service.impl.CardServiceImpl">
+		<property name="UserDao">
+			<ref bean="UserDao"/>
+		</property>
+		<property name="CardDao">
+			<ref bean="CardDao"/>
+		</property>
+	</bean>
 	<bean id="RegisterAction" class="action.RegisterAction">
 		<property name="RegisterService">
 			<ref bean="RegisterService"/>
+		</property>
+	</bean>
+	<bean id="LoginAction" class="action.LoginAction">
+		<property name="CardService">
+			<ref bean="CardService"/>
+		</property>
+	</bean>
+	<bean id="ChangeInfoAction" class="action.ChangeInfoAction">
+		<property name="CardService">
+			<ref bean="CardService"/>
 		</property>
 	</bean>
 </beans>
