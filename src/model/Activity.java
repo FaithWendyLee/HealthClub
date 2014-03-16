@@ -26,7 +26,7 @@ public class Activity implements Serializable {
 	private int id;
 	private Date time;
 	private String place;
-	private Employee coach;
+	private int coachNumber;
 	private Set<Card> cards = new HashSet<Card>();
 	
 	
@@ -55,13 +55,11 @@ public class Activity implements Serializable {
 		this.place = place;
 	}
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="coach_id")
-	public Employee getCoach() {
-		return coach;
+	public int getCoachNumber() {
+		return coachNumber;
 	}
-	public void setCoach(Employee coach) {
-		this.coach = coach;
+	public void setCoachNumber(int coachNumber) {
+		this.coachNumber = coachNumber;
 	}
 	
 	@ManyToMany(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)

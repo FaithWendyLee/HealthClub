@@ -21,7 +21,6 @@ public class Employee implements Serializable {
 	private int id;
 	private String password;
 	private EmployeeType type;
-	private Activity activity;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -48,13 +47,5 @@ public class Employee implements Serializable {
 		this.type = type;
 	}
 	
-	@OneToOne(mappedBy="coach")
-	public Activity getActivity() {
-		return activity;
-	}
-	public void setActivity(Activity activity) {
-		this.activity = activity;
-	}	
-	
-	
+
 }

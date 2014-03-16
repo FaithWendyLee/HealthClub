@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<jsp:include page="nav.jsp"/>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<script src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$("button#addUserBtn").hide()
+			$("button#addUserBtn").hide();
 		});
 		function addUser(){
-			var o = $("#main").clone(true);
+			var o = $(".user#main").clone(true);
 			o.attr("id", "notmain");
 			o.insertBefore($("#buttons"));
 		}
@@ -26,6 +21,9 @@
 	<title>用户注册</title>
 </head>
 <body>
+<div id="main">
+	<jsp:include page="nav.jsp"/>
+	<div id="site_content">
 	<form class="form-horizontal" action="Register.action" method="post">
 	<div class="card">
 		<div class="control-group">
@@ -94,5 +92,7 @@
 	    </div>
 	  </div>
 	</form>
+	</div>
+	</div>
 </body>
 </html>

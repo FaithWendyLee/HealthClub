@@ -17,6 +17,7 @@ public class LoginAction extends BaseAction {
 		if (cardService.validateCard(card))
 		{
 			Card p_card = cardService.getCard(card.getId());
+			session.put("login", true);
 			session.put("p_card", p_card);
 			session.put("p_users", new ArrayList<User>(p_card.getUsers()));
 			return "home";

@@ -5,13 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
 <title>错误</title>
 </head>
 <body>
+<div id="main">
+	<jsp:include page="nav.jsp"/>
+	<div id="site_content">
 	<h1><%= session.getAttribute("error") %></h1>
 	<a href="login.jsp" class="btn">返回登录</a>
+	</div>
+	</div>
 </body>
 </html>
