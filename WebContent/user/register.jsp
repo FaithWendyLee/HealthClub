@@ -24,6 +24,7 @@
 <div id="main">
 	<jsp:include page="nav.jsp"/>
 	<div id="site_content">
+			<div id="left_content">
 	<form class="form-horizontal" action="Register.action" method="post">
 	<div class="card">
 		<div class="control-group">
@@ -92,6 +93,7 @@
 	    </div>
 	  </div>
 	</form>
+	</div>
 	</div>
 	</div>
 </body>
