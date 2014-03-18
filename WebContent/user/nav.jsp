@@ -33,9 +33,9 @@
 			<ul class="sf-menu" id="nav">
 				<li id="home" class="selected"><a href="home.jsp">首页</a></li>
 				<li id="change_info"><a href="change_info.jsp">修改个人资料</a></li>
-				<li id="see_payment"><a href="see_payment.jsp">查看缴费信息</a></li>
-				<li id="schedule_activity"><a href="schedule_activity.jsp">预定健身活动</a></li>
-				<li id="see_activity"><a href="see_activity.jsp">查看已有活动</a></li>
+				<li id="see_payment"><a href="SeePayment.action">查看缴费信息</a></li>
+				<li id="schedule_activity"><a href="SeeOKActivity.action">预定健身活动</a></li>
+				<li id="see_activity"><a href="SeeActivity.action">查看已有活动</a></li>
 			</ul>
 		</nav>
 	</header>

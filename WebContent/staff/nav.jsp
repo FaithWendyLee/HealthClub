@@ -31,10 +31,10 @@
 		</div>
 		<nav>
 			<ul class="sf-menu" id="nav">
-				<li id="make_activity" class="selected"><a
+				<li id="make_activity" ><a
 					href="make_activity.jsp">制定活动安排</a></li>
-				<li id="search_user"><a href="search_user.jsp">修改会员信息</a></li>
-				<li id="search_activity"><a href="search_activity.jsp">修改活动信息</a></li>
+				<li id="show_cards"><a href="ShowCards.action">修改会员信息</a></li>
+				<li id="show_activities"><a href="ShowActivities.action">修改活动信息</a></li>
 			</ul>
 		</nav>
 	</header>

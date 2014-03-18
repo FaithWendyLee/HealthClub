@@ -16,7 +16,7 @@ public class ChangeInfoAction extends BaseAction {
 	private String[] name, sex, address; 
 	private int[] age;
 	private Card card;
-	private boolean activate;
+	private boolean activate = false;
 
 	@Override
 	public String execute() throws Exception {
@@ -33,7 +33,10 @@ public class ChangeInfoAction extends BaseAction {
 		@SuppressWarnings("unchecked")
 		List<User> oldUsers = (List<User>)session.get("p_users");
 		cardService.updateUsers(oldUsers, users);
-		return "home";
+		if (request.getParameter("source") != null)
+			return "show_all";
+		else
+			return "home";
 	}
 
 	public CardService getCardService() {

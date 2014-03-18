@@ -132,6 +132,13 @@ header {
 #right_content img { 
   float: left;}
 
+#center_content{
+    float: left;
+  text-align: justify;
+  padding: 20px 0 5px 25px;
+  margin: 0; 
+}
+
 footer { 
   height: 54px;
   width: 930px;

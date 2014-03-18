@@ -138,10 +138,15 @@ public class Card implements Serializable {
 		Remaining = remaining;
 	}
 	
-	public void activate(){
-		if (this.type == CardType.NORMAL)
+	public int activate(){
+		this.setStatus(StatusType.VALID);
+		if (this.type == CardType.NORMAL){
 			this.setRemaining(this.getRemaining() - 75);
-		else
+			return 75;
+		}
+		else{
 			this.setRemaining(this.getRemaining() - 100);
+			return 100;
+		}
 	}
 }

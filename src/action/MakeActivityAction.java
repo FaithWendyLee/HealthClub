@@ -3,15 +3,15 @@ package action;
 import model.Activity;
 import service.StaffService;
 
-public class MakeActivity extends BaseAction {
+public class MakeActivityAction extends BaseAction {
 	StaffService staffService;
 	
 	Activity activity;
 	
 	@Override
 	public String execute() throws Exception {
-		
-		return super.execute();
+		staffService.save(activity, request.getParameter("time"));
+		return "show_all";
 	}
 
 	public StaffService getStaffService() {

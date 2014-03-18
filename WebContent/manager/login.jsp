@@ -10,7 +10,7 @@
 <title>登录</title>
 <script type="text/javascript">
 	$(function  () {
-		$("input[type='hidden']").attr("value", "manager")
+		$("input[type='hidden']").attr("value", "manager");
 	});
 </script>
 </head>

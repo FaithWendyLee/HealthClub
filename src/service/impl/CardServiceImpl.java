@@ -1,11 +1,18 @@
 package service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import service.CardService;
+import dao.ActivityDao;
+import dao.AttendanceDao;
 import dao.CardDao;
+import dao.PaymentDao;
 import dao.UserDao;
+import model.Activity;
+import model.Attendance;
 import model.Card;
+import model.Payment;
 import model.User;
 import model.type.StatusType;
 
@@ -13,6 +20,9 @@ public class CardServiceImpl implements CardService {
 	
 	private UserDao userDao;
 	private CardDao cardDao;
+	private PaymentDao paymentDao;
+	private AttendanceDao attendanceDao;
+	private ActivityDao activityDao;
 
 	public UserDao getUserDao() {
 		return userDao;
@@ -28,6 +38,30 @@ public class CardServiceImpl implements CardService {
 
 	public void setCardDao(CardDao cardDao) {
 		this.cardDao = cardDao;
+	}
+
+	public PaymentDao getPaymentDao() {
+		return paymentDao;
+	}
+
+	public void setPaymentDao(PaymentDao paymentDao) {
+		this.paymentDao = paymentDao;
+	}
+
+	public AttendanceDao getAttendanceDao() {
+		return attendanceDao;
+	}
+
+	public void setAttendanceDao(AttendanceDao attendanceDao) {
+		this.attendanceDao = attendanceDao;
+	}
+
+	public ActivityDao getActivityDao() {
+		return activityDao;
+	}
+
+	public void setActivityDao(ActivityDao activityDao) {
+		this.activityDao = activityDao;
 	}
 
 	@Override
@@ -50,8 +84,8 @@ public class CardServiceImpl implements CardService {
 		oldCard.setPassword(newCard.getPassword());
 		if (oldCard.getStatus() == StatusType.CANCEl &&
 				newCard.getStatus() == StatusType.VALID){
-			oldCard.setStatus(StatusType.VALID);
-			oldCard.activate();
+			int money = oldCard.activate();
+			paymentDao.save(new Payment(oldCard, money, new Date()));
 		}
 		cardDao.update(oldCard);
 	}
@@ -65,6 +99,24 @@ public class CardServiceImpl implements CardService {
 			oldUsers.get(i).setAddress(newUsers.get(i).getAddress());
 		}
 		userDao.updateMany(oldUsers);
+	}
+
+	@Override
+	public void saveAttendance(int card_id, int activity_id) {
+		attendanceDao.save(new Attendance( (Activity) activityDao.find(activity_id, "Activity"),
+				cardDao.find(card_id)));
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Activity> getAllActivities() {
+		
+		return (List<Activity>) activityDao.findAll("Activity");
+	}
+
+	@Override
+	public void removeAttendance(Card card, Activity activity) {
+		activityDao.removeCard(card.getId(), activity.getId());
 	}
 
 

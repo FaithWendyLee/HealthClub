@@ -12,6 +12,10 @@ public interface BaseDao {
 	public void update(Object o);
 	
 	public void updateMany(List arr);
+	
+	public void delete(Object o);
 
 	public Object find(int id, String tablename);
+	
+	public List findAll(String tablename);
 }

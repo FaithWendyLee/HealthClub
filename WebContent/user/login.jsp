@@ -21,9 +21,9 @@
 </head>
 <body>
 	<div id="main">
-
 		<jsp:include page="nav.jsp" />
 		<div id="site_content">
+		<div id="left_content">
 			<form class="form-horizontal" action="Login.action" method="post">
 				<div class="control-group">
 					<label class="control-label">卡号</label>
@@ -45,7 +45,9 @@
 					</div>
 				</div>
 			</form>
+			</div>
 		</div>
+		<jsp:include page="../footer.jsp" />
 	</div>
 </body>
 </html>

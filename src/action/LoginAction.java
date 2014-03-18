@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import service.CardService;
 import model.Card;
+import model.Payment;
 import model.User;
 
 public class LoginAction extends BaseAction {
@@ -17,7 +18,7 @@ public class LoginAction extends BaseAction {
 		if (cardService.validateCard(card))
 		{
 			Card p_card = cardService.getCard(card.getId());
-			session.put("login", true);
+			session.put("card_id", p_card.getId());
 			session.put("p_card", p_card);
 			session.put("p_users", new ArrayList<User>(p_card.getUsers()));
 			return "home";

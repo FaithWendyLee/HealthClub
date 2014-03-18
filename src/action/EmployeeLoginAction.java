@@ -24,9 +24,10 @@ public class EmployeeLoginAction extends BaseAction {
 				return "staff_error";
 			}
 		}else{
+			System.out.println("haha");
 			if (managerService.validateManager(employee)){
 				session.put("login", true);
-				return "manager_error";
+				return "show_user_charts";
 			}
 			else{
 				session.put("error", "您输入的用户名或者密码有误");

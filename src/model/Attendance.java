@@ -1,13 +1,9 @@
 package model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,8 +17,17 @@ public class Attendance implements Serializable {
 	private Activity activity;
 	private Card card;
 	
+	public Attendance(){
+		
+	}
+	
+	public Attendance(Activity activity, Card card) {
+		super();
+		this.activity = activity;
+		this.card = card;
+	}
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}

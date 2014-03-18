@@ -82,5 +82,29 @@ public class BaseDaoImpl implements BaseDao {
 		HibernateUtil.closeSession();
 		return o;
 	}
+
+	@Override
+	public List findAll(String entityname) {
+		Session session = HibernateUtil.currentSession();
+		String hql = "from " + entityname;
+		Query query = (Query) session.createQuery(hql);
+		List list = query.list();
+		HibernateUtil.closeSession();
+		return list;
+	}
+
+	@Override
+	public void delete(Object o) {
+		Session session = HibernateUtil.currentSession();
+		Transaction transaction = (Transaction) session.beginTransaction();
+			session.delete(o);
+		try {
+			transaction.commit();
+		} catch (SecurityException | IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		HibernateUtil.closeSession();
+	}
 	
 }

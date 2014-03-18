@@ -15,9 +15,40 @@
 		<result name="make_activity">/staff/make_activity.jsp</result>
 		<result name="staff_error">/staff/error.jsp</result>
 		<result name="manager_error">/manager/error.jsp</result>
+		<result name="show_user_charts" type="redirect">/manager/ShowUserCharts.action</result>
 	</action>
 	<action name="ChangeInfo" class="ChangeInfoAction">
 		<result name="home">/user/home.jsp</result>
+		<result name="show_all" type="redirect">/staff/ShowCards.action</result>
 	</action>
+	<action name="MakeActivity" class="MakeActivityAction">
+		<result name="show_all" type="redirect">/staff/ShowActivities.action</result>
+	</action>
+	<action name="ShowActivities" class="ShowActivitiesAction">
+		<result name="show_all">/staff/show_activities.jsp</result>
+	</action>
+	<action name="ShowCards" class="ShowCardsAction">
+		<result name="show_all">/staff/show_cards.jsp</result>
+	</action>
+	<action name="ChangeActivity" class="ChangeActivityAction">
+		<result name="show_all">/staff/show_activities.jsp</result>
+	</action>
+	<action name="SeePayment" class="SeePaymentAction">
+		<result name="see_payment">/user/see_payment.jsp</result>
+	</action>
+	<action name="ScheduleActivity" class="ScheduleActivityAction">
+		<result name="see_ok_activity" type="redirect">/user/SeeOKActivity.action</result>
+	</action>
+	<action name="UnScheduleActivity" class="UnScheduleActivityAction">
+		<result name="change_attendance">/staff/change_attendance.jsp</result>
+	</action>
+	<action name="SeeActivity" class="SeeActivityAction">
+		<result name="see_activity">/user/see_activity.jsp</result>
+	</action>
+	<action name="SeeOKActivity" class="SeeOKActivityAction">
+		<result name="see_ok_activity">/user/see_ok_activity.jsp</result>
+	</action>
+	<action name="ShowUserCharts" class="ShowUserChartsAvtion"></action>
+	<action name="ShowActivityCharts" class="ShowActivityChartsAvtion"></action>
 	</package>
 </struts>
