@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +15,7 @@
                 x: -20 //center
             },
             xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: JSON.parse('<s:property escape="false" value="daysumCategory"/>')
             },
             yAxis: {
                 title: {
@@ -38,7 +38,7 @@
             },
             series: [{
                 name: '人数',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+                data: JSON.parse('<s:property escape="false" value="daysumData" />')
             }]
         });
         $('#place_chart').highcharts({
@@ -50,28 +50,7 @@
                 text: '场地使用情况'
             },
             xAxis: {
-                categories: [
-                    'Tokyo',
-                    'Jakarta',
-                    'New York',
-                    'Seoul',
-                    'Manila',
-                    'Mumbai',
-                    'Sao Paulo',
-                    'Mexico City',
-                    'Dehli',
-                    'Osaka',
-                    'Cairo',
-                    'Kolkata',
-                    'Los Angeles',
-                    'Shanghai',
-                    'Moscow',
-                    'Beijing',
-                    'Buenos Aires',
-                    'Guangzhou',
-                    'Shenzhen',
-                    'Istanbul'
-                ],
+                categories: JSON.parse('<s:property escape="false" value="placeCategory" />'),
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -95,9 +74,7 @@
             },
             series: [{
                 name: 'Population',
-                data: [34.4, 21.8, 20.1, 20, 19.6, 19.5, 19.1, 18.4, 18,
-                    17.3, 16.8, 15, 14.7, 14.5, 13.3, 12.8, 12.4, 11.8,
-                    11.7, 11.2],
+                data: JSON.parse('<s:property escape="false" value="placeData" />'),
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -122,28 +99,7 @@
                 text: '教练使用情况'
             },
             xAxis: {
-                categories: [
-                    'Tokyo',
-                    'Jakarta',
-                    'New York',
-                    'Seoul',
-                    'Manila',
-                    'Mumbai',
-                    'Sao Paulo',
-                    'Mexico City',
-                    'Dehli',
-                    'Osaka',
-                    'Cairo',
-                    'Kolkata',
-                    'Los Angeles',
-                    'Shanghai',
-                    'Moscow',
-                    'Beijing',
-                    'Buenos Aires',
-                    'Guangzhou',
-                    'Shenzhen',
-                    'Istanbul'
-                ],
+                categories: JSON.parse('<s:property escape="false" value="coachCategory" />'),
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -167,9 +123,7 @@
             },
             series: [{
                 name: 'Population',
-                data: [34.4, 21.8, 20.1, 20, 19.6, 19.5, 19.1, 18.4, 18,
-                    17.3, 16.8, 15, 14.7, 14.5, 13.3, 12.8, 12.4, 11.8,
-                    11.7, 11.2],
+                data: JSON.parse('<s:property escape="false" value="coachData" />'),
                 dataLabels: {
                     enabled: true,
                     rotation: -90,

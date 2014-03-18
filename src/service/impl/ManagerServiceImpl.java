@@ -3,11 +3,13 @@ package service.impl;
 import java.util.List;
 
 import dao.ActivityDao;
+import dao.CardDao;
 import dao.EmployeeDao;
 import dao.UserDao;
 import model.Activity;
 import model.Employee;
 import model.User;
+import model.Card;
 import model.type.EmployeeType;
 import service.ManagerService;
 
@@ -18,6 +20,8 @@ public class ManagerServiceImpl implements ManagerService {
 	private UserDao userDao;
 	
 	private ActivityDao activityDao;
+	
+	private CardDao cardDao;
 
 	public EmployeeDao getEmployeeDao() {
 		return employeeDao;
@@ -43,6 +47,14 @@ public class ManagerServiceImpl implements ManagerService {
 		this.activityDao = activityDao;
 	}
 	
+	public CardDao getCardDao() {
+		return cardDao;
+	}
+
+	public void setCardDao(CardDao cardDao) {
+		this.cardDao = cardDao;
+	}
+
 	@Override
 	public boolean validateManager(Employee employee) {
 		Employee p_employee = employeeDao.find(employee.getId());
@@ -54,16 +66,25 @@ public class ManagerServiceImpl implements ManagerService {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAllUser() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<User>) userDao.findAll("User");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Activity> getAllActivities() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<Activity>) activityDao.findAll("Activity");
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Card> getAllCards() {
+		// TODO Auto-generated method stub
+		return (List<Card>) cardDao.findAll("Card");
 	}
 		
 }

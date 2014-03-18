@@ -7,6 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="../js/jquery.js"></script>
 <script type="text/javascript">
+	function map2array(mapstr){
+		var map = JSON.parse(mapstr);
+		var arr = new Array();
+		for ( var key in map) {
+			arr.push([key, map[key]]);
+		}
+		return arr;
+	}
 	$(function() {
 		changeNavTo("show_user_charts");
 		$('#sex_chart').highcharts({
@@ -36,10 +44,7 @@
 	        series: [{
 	            type: 'pie',
 	            name: '比例',
-	            data: [
-	                ['男',   5],
-	                ['女',       1]
-	            ]
+	            data: map2array('<s:property escape="false" value="sexData"/>')
 	        }]
 	    });
 		$('#age_chart').highcharts({
@@ -69,11 +74,7 @@
 	        series: [{
 	            type: 'pie',
 	            name: '比例',
-	            data: [
-	                ['0-10',   5],
-	                ['10-20',       1],
-	                ['20-30',   3]
-	            ]
+	            data: map2array('<s:property escape="false" value="ageData"/>')
 	        }]
 	    });
 		$('#address_chart').highcharts({
@@ -103,11 +104,7 @@
 	        series: [{
 	            type: 'pie',
 	            name: '比例',
-	            data: [
-	                ['Firefox',   5],
-	                ['IE',       1],
-	                ['Others',   0.7]
-	            ]
+	            data: map2array('<s:property escape="false" value="addressData"/>')
 	        }]
 	    });
 		$('#status_chart').highcharts({
@@ -137,12 +134,7 @@
 	        series: [{
 	            type: 'pie',
 	            name: '比例',
-	            data: [
-	                ['Firefox',   5],
-	                ['IE',       1],
-	                ['Opera',     6.2],
-	                ['Others',   0.7]
-	            ]
+	            data: map2array('<s:property escape="false" value="statusData"/>')
 	        }]
 	    });
 	});

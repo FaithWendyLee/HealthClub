@@ -48,10 +48,10 @@
 	<action name="SeeOKActivity" class="SeeOKActivityAction">
 		<result name="see_ok_activity">/user/see_ok_activity.jsp</result>
 	</action>
-	<action name="ShowUserCharts" class="ShowUserChartsAvtion">
+	<action name="ShowUserCharts" class="ShowUserChartsAction">
 		<result name="charts">/manager/show_user_charts.jsp</result>
 	</action>
-	<action name="ShowActivityCharts" class="ShowActivityChartsAvtion">
+	<action name="ShowActivityCharts" class="ShowActivityChartsAction">
 	<result name="charts">/manager/show_activity_charts.jsp</result>
 	</action>
 	</package>
