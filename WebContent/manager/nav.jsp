@@ -14,8 +14,8 @@
 <script type="text/javascript" src="../js/modernizr-1.5.min.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/highcharts.js"></script>
 <script type="text/javascript">
-
 	function changeNavTo(tabId) {
 		$("ul.sf-menu > li.selected").attr("class", null);
 		$("ul.sf-menu > li#" + tabId ).attr("class", "selected");
@@ -31,8 +31,8 @@
 		</div>
 		<nav>
 			<ul class="sf-menu" id="nav">
-				<li id="show_cards"><a href="ShowUserCharts.action">修改会员信息</a></li>
-				<li id="show_activities"><a href="ShowActivitiyCharts.action">修改活动信息</a></li>
+				<li id="show_user_charts"><a href="ShowUserCharts.action">显示会员图表</a></li>
+				<li id="show_activity_charts"><a href="ShowActivityCharts.action">显示活动图表</a></li>
 			</ul>
 		</nav>
 	</header>

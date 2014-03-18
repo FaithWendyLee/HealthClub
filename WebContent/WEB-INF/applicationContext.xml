@@ -130,4 +130,14 @@
 			<ref bean="CardService"/>
 		</property>
 	</bean>
+	<bean id="ShowUserChartsAction" class="action.ShowUserChartsAction">
+		<property name="ManagerService">
+			<ref bean="ManagerService"/>
+		</property>
+	</bean>
+	<bean id="ShowActivityChartsAction" class="action.ShowActivityChartsAction">
+		<property name="ManagerService">
+			<ref bean="ManagerService"/>
+		</property>
+	</bean>
 </beans>

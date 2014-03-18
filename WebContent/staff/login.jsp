@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="nav.jsp"/>		
+		
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
 <title>登录</title>
 </head>
 <body>
+<jsp:include page="nav.jsp"/>
 	<form class="form-horizontal" action="EmployeeLogin.action" method="post">
 		<div class="control-group">
 	    <label class="control-label">ID</label>
@@ -31,5 +32,6 @@
 	</form>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <jsp:include page="../footer.jsp" />
 </body>
 </html>

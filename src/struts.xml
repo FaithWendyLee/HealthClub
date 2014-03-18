@@ -48,7 +48,11 @@
 	<action name="SeeOKActivity" class="SeeOKActivityAction">
 		<result name="see_ok_activity">/user/see_ok_activity.jsp</result>
 	</action>
-	<action name="ShowUserCharts" class="ShowUserChartsAvtion"></action>
-	<action name="ShowActivityCharts" class="ShowActivityChartsAvtion"></action>
+	<action name="ShowUserCharts" class="ShowUserChartsAvtion">
+		<result name="charts">/manager/show_user_charts.jsp</result>
+	</action>
+	<action name="ShowActivityCharts" class="ShowActivityChartsAvtion">
+	<result name="charts">/manager/show_activity_charts.jsp</result>
+	</action>
 	</package>
 </struts>
