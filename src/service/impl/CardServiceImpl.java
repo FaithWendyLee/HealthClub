@@ -113,11 +113,24 @@ public class CardServiceImpl implements CardService {
 		
 		return (List<Activity>) activityDao.findAll("Activity");
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Card> getAllCards() {
+		return (List<Card>) cardDao.findAll("Card");
+	}
 
 	@Override
 	public void removeAttendance(Card card, Activity activity) {
 		activityDao.removeCard(card.getId(), activity.getId());
 	}
 
-
+	@Override
+	public boolean addPayment(Card card, int money) {
+		if (card.getRemaining() - money < 0)
+			return false;
+		card.setRemaining(card.getRemaining() - money);
+		paymentDao.save(new Payment(card, money, new Date()));
+		return true;
+	}
 }

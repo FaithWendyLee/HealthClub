@@ -17,7 +17,11 @@ public interface CardService {
 	
 	public void saveAttendance(int card_id, int activity_id);
 
-	List<Activity> getAllActivities();
+	public List<Activity> getAllActivities();
 
 	public void removeAttendance(Card card, Activity activity);
+
+	public List<Card> getAllCards();
+	
+	public boolean addPayment(Card card, int money);
 }
