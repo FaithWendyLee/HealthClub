@@ -149,9 +149,4 @@
 			<ref bean="ManagerService" />
 		</property>
 	</bean>
-	<bean id="ReduceMoneyListener" class="listener.ReduceMoneyListener">
-		<property name="CardService">
-			<ref bean="CardService" />
-		</property>
-	</bean>
 </beans>

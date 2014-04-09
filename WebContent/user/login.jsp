@@ -4,16 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+<!-- <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
 <script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script> -->
-<script src="../js/jquery.js"></script>
+<!-- <script src="../js/bootstrap.min.js"></script> -->
+<link href='http://fonts.googleapis.com/css?family=Lobster'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Belgrano'
+	rel='stylesheet' type='text/css'>
+<link href="css/styles.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
-$(function () {
-	changeNavTo("home");
-});
+	$(function() {
+
+	});
 </script>
-<title>欢迎界面</title>
+<title>用户登录</title>
 </head>
 <body>
 	<div id="main">

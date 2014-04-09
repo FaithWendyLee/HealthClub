@@ -49,11 +49,15 @@ public interface CardService {
 	 */
 	public void saveAttendance(int card_id, int activity_id);
 
+<<<<<<< HEAD
 	/**
 	 * 得到所有的活动
 	 * @return
 	 */
 	public List<Activity> getAllActivities();
+=======
+	List<Activity> getAllActivities();
+>>>>>>> parent of 1376179... last commit
 
 	/**
 	 * 删除一个预定
@@ -61,6 +65,7 @@ public interface CardService {
 	 * @param activity
 	 */
 	public void removeAttendance(Card card, Activity activity);
+<<<<<<< HEAD
 
 	/**
 	 * 得到所有的卡
@@ -75,4 +80,6 @@ public interface CardService {
 	 * @return
 	 */
 	public boolean addPayment(Card card, int money);
+=======
+>>>>>>> parent of 1376179... last commit
 }
