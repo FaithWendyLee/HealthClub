@@ -11,6 +11,12 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
+/**
+ * 封装了Hibernate操作的工具类
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class HibernateUtil {
 
 	private static HibernateUtil util = new HibernateUtil();
@@ -33,6 +39,10 @@ public class HibernateUtil {
 		sessionFactory = cfg.buildSessionFactory(sr);
 	}
 	
+	/**
+	 * 得到当前所用的Session，如果没有则创建一个
+	 * @return
+	 */
 	public static Session currentSession() {
 		Session currentSession = threadLocal.get();
 		if (currentSession == null) {
@@ -42,6 +52,9 @@ public class HibernateUtil {
 		return currentSession;
 	}
 
+	/**
+	 * 关闭当前所用的Session
+	 */
 	public static void closeSession() {
 		Session currentSession = (Session) threadLocal.get();
 		if (currentSession != null) {

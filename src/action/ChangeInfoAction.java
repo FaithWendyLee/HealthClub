@@ -6,10 +6,15 @@ import java.util.List;
 import service.CardService;
 import model.Card;
 import model.User;
-import model.type.CardType;
 import model.type.SexType;
 import model.type.StatusType;
 
+/**
+ * 实现了对卡和用户信息的更新操作POST请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class ChangeInfoAction extends BaseAction {
 	private CardService cardService;
 	

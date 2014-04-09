@@ -7,6 +7,12 @@ import dao.ActivityDao;
 import model.Activity;
 import service.StaffService;
 
+/**
+ * 实现了对acticity的更新操作POST请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class ChangeActivityAction extends BaseAction {
 	ActivityDao activityDao;
 	

@@ -20,6 +20,12 @@ import javax.persistence.Table;
 import model.type.CardType;
 import model.type.StatusType;
 
+/**
+ * Card Model的定义
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 @Entity
 @Table(name = "cards")
 public class Card implements Serializable {

@@ -7,6 +7,12 @@ import java.util.Set;
 import model.Activity;
 import model.Card;
 
+/**
+ * 实现了用户查看已经活动操作请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class SeeActivityAction extends BaseAction {
 	CardService cardService;
 	

@@ -9,6 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Attendance Model的定义
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 @Entity
 @Table(name = "attendances")
 public class Attendance implements Serializable {

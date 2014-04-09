@@ -15,6 +15,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ *Payment Model的定义
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 @Entity
 @Table(name = "payments")
 public class Payment implements Serializable {

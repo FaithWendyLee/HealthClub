@@ -9,6 +9,12 @@ import com.alibaba.fastjson.JSON;
 import model.Activity;
 import service.ManagerService;
 
+/**
+ * 实现了经理查看有关活动的统计图表的操作请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class ShowActivityChartsAction extends BaseAction {
 	private ManagerService managerService;
 	

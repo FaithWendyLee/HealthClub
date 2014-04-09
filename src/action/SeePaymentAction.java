@@ -1,14 +1,17 @@
 package action;
 
-import java.util.ArrayList;
 import java.util.Set;
 
 import dao.CardDao;
 import model.Card;
 import model.Payment;
-import model.User;
-import service.CardService;
 
+/**
+ * 实现了用户查看缴费记录操作请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class SeePaymentAction extends BaseAction {
 	
 	private CardDao cardDao;

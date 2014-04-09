@@ -7,6 +7,12 @@ import model.Card;
 import model.Payment;
 import model.User;
 
+/**
+ * 实现了持有家庭卡或普通卡的会员登录操作POST请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class LoginAction extends BaseAction {
 	private Card card;
 	

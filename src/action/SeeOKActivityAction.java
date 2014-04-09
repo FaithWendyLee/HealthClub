@@ -7,6 +7,12 @@ import model.Activity;
 import model.Card;
 import service.CardService;
 
+/**
+ * 实现了用户查看可以预定的活动操作请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class SeeOKActivityAction extends BaseAction {
 	CardService cardService;
 	

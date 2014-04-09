@@ -5,6 +5,12 @@ import java.util.List;
 import model.Card;
 import service.StaffService;
 
+/**
+ * 实现了服务员查看所有会员卡操作请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class ShowCardsAction extends BaseAction {
 	StaffService staffService;
 	

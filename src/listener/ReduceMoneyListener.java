@@ -20,6 +20,12 @@ import model.type.CardType;
 import model.type.StatusType;
 import service.CardService;
 
+/**
+ * 在Web-app启动时开始定时检查用户是否应当交费并改变用户状态
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class ReduceMoneyListener implements ServletContextListener {
 	@Autowired
 	CardService cardService;

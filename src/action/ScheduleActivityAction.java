@@ -6,6 +6,12 @@ import model.Activity;
 import model.Attendance;
 import model.Card;
 
+/**
+ * 实现了对用户预订活动操作请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class ScheduleActivityAction extends BaseAction {
 	private int id;
 	

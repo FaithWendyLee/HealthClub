@@ -14,6 +14,12 @@ import javax.persistence.Table;
 
 import model.type.EmployeeType;
 
+/**
+ * Employee Model的定义
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 @Entity
 @Table(name = "employees")
 public class Employee implements Serializable {

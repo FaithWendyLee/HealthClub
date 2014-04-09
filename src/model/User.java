@@ -16,6 +16,12 @@ import model.type.SexType;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+/**
+ * User Model的定义
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 @Entity
 @Table(name = "users")
 public class User implements Serializable {

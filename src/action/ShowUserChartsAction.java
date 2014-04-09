@@ -12,6 +12,12 @@ import com.alibaba.fastjson.JSON;
 
 import service.ManagerService;
 
+/**
+ * 实现了经理查看用户相关图表操作请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class ShowUserChartsAction extends BaseAction {
 	private ManagerService managerService;
 	private String sexData, ageData, addressData, statusData;

@@ -10,6 +10,12 @@ import model.type.CardType;
 import model.type.SexType;
 import model.type.StatusType;
 
+/**
+ * 实现了注册用户操作POST请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class RegisterAction extends BaseAction {
 	private String[] name, sex, address; 
 	private int[] age;

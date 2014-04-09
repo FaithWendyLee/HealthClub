@@ -6,7 +6,9 @@
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="../css/flat-ui.css" rel="stylesheet" media="screen">
+<link href="../css/docs.css" rel="stylesheet" media="screen">
 <!-- stylesheets -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <link href="../css/colour.css" rel="stylesheet" type="text/css" />

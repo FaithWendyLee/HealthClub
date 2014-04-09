@@ -5,6 +5,12 @@ import service.ManagerService;
 import service.StaffService;
 import dao.EmployeeDao;
 
+/**
+ * 实现了对雇员（包括普通服务员和经理）登录的更新操作POST请求的处理
+* @author 王选易
+* @version 1.0
+* @since 1.7
+*/
 public class EmployeeLoginAction extends BaseAction {
 
 	private Employee employee;
